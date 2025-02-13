@@ -1,0 +1,5 @@
+$ Print statement
+int x = 100;
+print("Hello, World!");
+print(100);
+print(x);

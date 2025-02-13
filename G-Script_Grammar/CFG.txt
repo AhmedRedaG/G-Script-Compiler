@@ -1,0 +1,73 @@
+Program → Statement Program | ε
+
+Statement → Declaration EndLine
+          | Assignment EndLine
+          | IfStatement 
+          | WhileStatement 
+          | ForStatement
+          | FinStatement
+          | PrintStatement EndLine
+          | Comment
+
+Declaration → DataType Identifier = Expression 
+            | arr Identifier = [ Expression ExpressionList ] 
+
+ExpressionList → Expression , ExpressionList | ε
+
+DataType → int
+         | str
+         | arr
+
+Assignment → Identifier = Expression 
+
+IfStatement → if ( Condition ) { StatementList } ElseIfStatement ElseBlock
+ElseIfStatement → elif ( Condition ) { StatementList } ElifList | ε
+ElseBlock → else { StatementList } | ε
+
+StatementList → Statement StatementList | ε
+
+WhileStatement → while ( Condition ) { StatementList }
+
+Condition → ConditionTerm LogicalOperator ConditionTerm
+ConditionTerm → Expression RelationalOperator Expression 
+          | RelationalOperator Expression
+          | Condition
+          | ε
+
+RelationalOperator → == | != | < | > | <= | >=
+MathematicalOperator → + | - | * | / | ** | %
+LogicalOperator → || | && | ! | ε 
+
+ForStatement → for ( Initialization :: Condition :: Iteration ) { StatementList }
+Initialization → Declaration | Identifier
+Iteration → MathematicalOperator Number
+          | MathematicalOperator Identifier
+
+ForStatement → fin ( Initialization :: Data :: Iteration ) { StatementList }
+Data → Identifier
+
+PrintStatement → print( Expression )
+
+Expression → Term TermPrime LogicalPrime | " Text "
+LogicalPrime → LogicalOperator Expression 
+TermPrime → MathematicalOperator Term TermPrime | ε
+Term → Number | Identifier | ( Expression )
+
+Identifier → Letter AlphanumericList
+AlphanumericList → Alphanumeric AlphanumericList | ε
+Alphanumeric → Letter | Digit
+Letter → a | b | ... | z | A | B | ... | Z | _
+
+Number → Digit NumberTail
+NumberTail → Digit NumberTail | ε
+Digit → 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+Text → Letter TextTail
+TextTail → Letter TextTail 
+         | Digit TextTail 
+         | Whitespace TextTail 
+         | ε
+
+Whitespace → " " | "\t" | "\n"
+EndLine → ;
+Comment → $ Text 

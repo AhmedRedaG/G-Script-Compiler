@@ -1,0 +1,28 @@
+int x = 10;
+int y = 5;
+arr z = [1, 2, 3, 4, 5];
+int mod;
+
+if (x > y) {
+    print("x is greater than y");
+    for ( i = 0 :: < 5 :: + 1) {
+        print(i);
+        mod = i % 2;
+        if (mod == 0) {
+            print("Even number found");
+        } elif (mod == 1) {
+            print("Odd number found");
+        }
+    }
+} elif (x == y) {
+    print("x is equal to y");
+    while (y > 0) {
+        print(y);
+        y = y - 1;
+    }
+} else {
+    print("x is less than y");
+    fin ( i :: z :: + 1) {
+        print(i);
+    }
+}

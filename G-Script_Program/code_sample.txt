@@ -1,0 +1,73 @@
+$ Print statement
+int x = 100;
+print("Hello, World!");
+print(100);
+print(x);
+
+print(5 + (2 * 10));
+
+
+
+
+$ Declaration of an integer variable & array
+int x = 10;
+str y = "Hello, World!";
+int z;
+
+arr values = [1, 2, 3, 4];
+
+$ Assignment of a value to a variable
+z = 20;
+
+
+
+
+$ For & Fin loop with initialization, condition, and iteration
+for ( i = 0 :: < 5 :: + 1) { 
+  print(i);
+}
+
+arr numbers = [1, 2, 3, 4];
+fin ( num :: numbers :: + 1) {
+  print(num); 
+}
+
+
+
+
+$ If statement with a condition
+int x = 10;
+if (x > 15) { 
+  print("x is greater than 15"); 
+} elif (x < 15) {
+  print("x is smaller than 15"); 
+} else {
+  x = x ** 2;
+}
+
+
+
+
+$ While loop
+int x = 20;
+while (x < 25) { 
+  x = x + 1;
+}
+
+
+$ Nested Code
+int x = 10;
+int mod;
+while (x < 15) {
+    mod = x % 3;
+    if (mod == 0) {
+        print("x is a multiple of 3");
+        for (i = 0 :: <15 :: +3){
+          print(i);
+        }
+        x = x + 1;
+    } elif (mod != 0) {
+        print("x is not a multiple of 3");
+        break
+    }
+}
